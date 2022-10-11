@@ -11,7 +11,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.RowConstraints;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -30,35 +29,42 @@ public class BuscarYRemplazar extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		
+		//textfields
 		buscarText = new TextField();
 		reemplazarText = new TextField();
 		
+		//botones
 		buscarButton = new Button("Buscar");
-		buscarButton.setMaxWidth(Double.MAX_VALUE);
 		reemplazarButton = new Button("Reemplazar");
-		reemplazarButton.setMaxWidth(Double.MAX_VALUE);
 		reemplazarTodoButton = new Button("Reemplazar todo");
 		cerrarButton = new Button("Cerrar");
-		cerrarButton.setMaxWidth(Double.MAX_VALUE);
 		ayudaButton = new Button("Ayuda");
+
+		buscarButton.setMaxWidth(Double.MAX_VALUE);
+		reemplazarButton.setMaxWidth(Double.MAX_VALUE);
+		cerrarButton.setMaxWidth(Double.MAX_VALUE);
 		ayudaButton.setMaxWidth(Double.MAX_VALUE);
 		
+		//check boxes
 		mayusYMinusCheck = new CheckBox("Mayúsculas y Minúsculas");
 		haciaAtrasCheck = new CheckBox("Buscar hacia atrás");
 		regularExpCheck = new CheckBox("Expresión regular");
 		resaltarCheck = new CheckBox("Resaltar resultados");
 		
+		//vbox con los botones
 		buttonsPanel = new VBox(buscarButton, reemplazarButton, reemplazarTodoButton, cerrarButton, ayudaButton);
 		buttonsPanel.setAlignment(Pos.CENTER);
 		buttonsPanel.setPadding(new Insets(0,5,0,5));
 		buttonsPanel.setSpacing(5);
 		
+		//grid pane con los check boxes
 		GridPane checkPanel = new GridPane();
 		checkPanel.setHgap(5);
 		checkPanel.setVgap(5);
 		checkPanel.addRow(0, mayusYMinusCheck, haciaAtrasCheck);
 		checkPanel.addRow(1, regularExpCheck, resaltarCheck);
 		
+		//root con todo
 		root = new GridPane();
 		root.setPadding(new Insets(5,5,5,5));
 		root.setHgap(5);
@@ -76,15 +82,7 @@ public class BuscarYRemplazar extends Application {
 		root.getColumnConstraints().setAll(cols);
 		cols[2].setMinWidth(Control.USE_PREF_SIZE);
 		
-		RowConstraints [] rows = {
-			new RowConstraints(), 
-			new RowConstraints(), 
-			new RowConstraints()	
-		};
-		root.getRowConstraints().setAll(rows);
-		
 		GridPane.setRowSpan(buttonsPanel, 3);
-		
 		
 		primaryStage.setTitle("BuscarYRemplazar");
 		primaryStage.setScene(new Scene(root, 500, 300));
