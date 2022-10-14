@@ -64,7 +64,7 @@ public class BuscarYRemplazar extends Application {
 		
 		// gridpane con los elementos del formulario
 		GridPane formularioPanel = new GridPane();
-//		gridpane.setStyle("-fx-background-color: aqua");
+//		formularioPanel.setStyle("-fx-background-color: aqua");
 		formularioPanel.setPadding(new Insets(5,5,5,5));
 		formularioPanel.setHgap(5);
 		formularioPanel.setVgap(5);
